@@ -6,7 +6,7 @@ export const BandNav = () => {
     <>
       <nav className="navbar navbar-expand-lg bg-body-tertiary border-bottom border-body">
         <div className="container-fluid">
-          <Link className="navbar-brand">
+          <Link className="navbar-brand" to={"/"}>
             <img
               src="../../src/assets/Logo.jpg"
               alt="Sound Spot Logo"
@@ -23,7 +23,7 @@ export const BandNav = () => {
           </button>
           <div className="collapse navbar-collapse" id="navbarToggle">
             <ul className="navbar-nav me-auto mb-lg-0">
-              <Link className="nav-link">
+              <Link className="nav-link" to={"/"}>
                 <li className="nav-item me-5">My Bands</li>
               </Link>
               <Link className="nav-link">
