@@ -1,11 +1,21 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import "../App.css";
+import { BandViews } from "./BandViews";
+import { FanViews } from "./FanViews";
 
 export const ApplicationViews = () => {
-  return (
-    <>
-      <h1>Nasville Sound Spot</h1>
-    </>
+  const [currentUser, setCurrentUser] = useState({});
+
+  useEffect(() => {
+    const localSpotUser = localStorage.getItem("sound_spot_user");
+    const spotUserObject = JSON.parse(localSpotUser);
+
+    setCurrentUser(spotUserObject);
+  }, []);
+  return currentUser.isBand ? (
+    <BandViews currentUser={currentUser} />
+  ) : (
+    <FanViews />
   );
 };
