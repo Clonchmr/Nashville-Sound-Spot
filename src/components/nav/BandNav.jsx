@@ -23,7 +23,7 @@ export const BandNav = () => {
           </button>
           <div className="collapse navbar-collapse" id="navbarToggle">
             <ul className="navbar-nav me-auto mb-lg-0">
-              <Link className="nav-link" to={"/"}>
+              <Link className="nav-link" to={"/mybands"}>
                 <li className="nav-item me-5">My Bands</li>
               </Link>
               <Link className="nav-link">

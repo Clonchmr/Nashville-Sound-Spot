@@ -109,7 +109,7 @@ export const CreateBand = ({ currentUser }) => {
           />
         </fieldset>
         <fieldset>
-          <button className="btn btn-secondary" onClick={handleNewBand}>
+          <button className="btn btn-dark" onClick={handleNewBand}>
             Create Band
           </button>
         </fieldset>

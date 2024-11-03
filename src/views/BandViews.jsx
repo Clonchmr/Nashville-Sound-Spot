@@ -3,6 +3,8 @@ import { BandNav } from "../components/nav/BandNav";
 import { MyBands } from "../components/BandProfiles/MyBands";
 import { CreateBand } from "../components/forms/CreateBand";
 import { BandProfile } from "../components/BandProfiles/BandProfile";
+import { EditBand } from "../components/forms/EditBands";
+import { Welcome } from "../components/welcome/Welcome";
 
 export const BandViews = ({ currentUser }) => {
   return (
@@ -16,7 +18,8 @@ export const BandViews = ({ currentUser }) => {
           </>
         }
       >
-        <Route index element={<MyBands currentUser={currentUser} />} />
+        <Route index element={<Welcome />} />
+        <Route path="mybands" element={<MyBands currentUser={currentUser} />} />
         <Route
           path="Create"
           element={<CreateBand currentUser={currentUser} />}
@@ -24,6 +27,10 @@ export const BandViews = ({ currentUser }) => {
         <Route
           path="mybands/:bandId/details"
           element={<BandProfile currentUser={currentUser} />}
+        />
+        <Route
+          path="mybands/:bandId/details/edit"
+          element={<EditBand currentUser={currentUser} />}
         />
       </Route>
     </Routes>

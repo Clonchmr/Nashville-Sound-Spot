@@ -22,3 +22,19 @@ export const GetBandById = (bandId) => {
     (res) => res.json()
   );
 };
+
+export const UpdateBand = (bandId, bandObj) => {
+  return fetch(`http://localhost:8088/bands/${bandId}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(bandObj),
+  });
+};
+
+export const DeleteBand = (bandId) => {
+  return fetch(`http://localhost:8088/bands/${bandId}`, {
+    method: "DELETE",
+  });
+};

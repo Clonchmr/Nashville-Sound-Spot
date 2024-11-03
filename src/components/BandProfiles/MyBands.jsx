@@ -17,7 +17,7 @@ export const MyBands = ({ currentUser }) => {
         userBands.map((band) => (
           <div
             key={band.id}
-            className="card col mb-3 border-secondary"
+            className="card col mb-3 border-secondary text-center"
             onClick={() => {
               navigate(`/mybands/${band.id}/details`);
             }}

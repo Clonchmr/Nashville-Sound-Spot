@@ -2,3 +2,8 @@
   width: 20rem;
   cursor: pointer;
 }
+
+.delete-band-btn {
+  width: 10rem !important;
+  margin: 0 auto;
+}
