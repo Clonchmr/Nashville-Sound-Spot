@@ -4,7 +4,7 @@ import "../../styles/navbar.css";
 export const BandNav = () => {
   return (
     <>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary border-bottom border-body">
+      <nav className="navbar navbar-expand-lg bg-body-tertiary border-bottom border-body mb-5">
         <div className="container-fluid">
           <Link className="navbar-brand" to={"/"}>
             <img

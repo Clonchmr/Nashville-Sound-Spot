@@ -56,13 +56,13 @@ export const CreateBand = ({ currentUser }) => {
   return (
     <form>
       <div className="container">
-        <h3>Add a new band:</h3>
+        <h3 className="mt-3">Add a new band:</h3>
         <fieldset className="row">
           <label className="form-label">Band Name</label>
           <input
             type="text"
             required
-            className="form-control col"
+            className="form-control col mb-3"
             placeholder="Enter Band Name..."
             onChange={(e) => {
               setName(e.target.value);
@@ -70,7 +70,7 @@ export const CreateBand = ({ currentUser }) => {
           />
           <select
             required
-            className="form-select col"
+            className="form-select col mb-3"
             onChange={(e) => {
               setGenre(e.target.value);
             }}
@@ -88,7 +88,7 @@ export const CreateBand = ({ currentUser }) => {
         <fieldset>
           <label className="form-label">Bio</label>
           <textarea
-            className="form-control"
+            className="form-control mb-3"
             required
             placeholder="Tell us about yourself..."
             onChange={(e) => {
@@ -101,7 +101,7 @@ export const CreateBand = ({ currentUser }) => {
             Add Profile Picture
           </label>
           <input
-            className="form-control"
+            className="form-control mb-3"
             type="file"
             id="formFile"
             accept="image/*"
