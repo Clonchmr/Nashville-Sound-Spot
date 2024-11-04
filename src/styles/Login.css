@@ -1,3 +1,9 @@
 .img-logo {
-  width: 30rem;
+  width: 40rem;
+
+  margin: 0 auto;
+}
+
+.welcome-card {
+  margin: 0 auto;
 }

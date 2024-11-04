@@ -1,15 +1,19 @@
 export const Welcome = () => {
   return (
-    <div className="container text-center">
-      <img
-        src="../../src/assets/Logo.jpg"
-        alt="Nashville Sound Spot Logo"
-        className="img-thumbnail img-logo"
-      />
-      <div className="card text-center">
+    <div className="container-fluid">
+      <div className="card text-center w-50 mb-5 border-dark welcome-card">
+        <h5 className="card-header">Welcome to</h5>
+        <img
+          src="../../src/assets/Logo.jpg"
+          alt="Nashville Sound Spot Logo"
+          className="img-logo mb-5 img-fluid"
+        />
+
         <div className="card-body">
           <blockquote className="blockquote">
-            <p>Stuff about Sound Spot</p>
+            <footer className="blockquote-footer">
+              Stuff about Sound Spot
+            </footer>
           </blockquote>
         </div>
       </div>

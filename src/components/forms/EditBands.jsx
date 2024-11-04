@@ -51,6 +51,7 @@ export const EditBand = ({ currentUser }) => {
               setBandToEdit(copy);
             }}
           />
+
           <select
             required
             className="form-select col mb-3"

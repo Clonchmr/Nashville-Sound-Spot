@@ -5,6 +5,7 @@ import { CreateBand } from "../components/forms/CreateBand";
 import { BandProfile } from "../components/BandProfiles/BandProfile";
 import { EditBand } from "../components/forms/EditBands";
 import { Welcome } from "../components/welcome/Welcome";
+import { CreateShow } from "../components/forms/CreateShow";
 
 export const BandViews = ({ currentUser }) => {
   return (
@@ -31,6 +32,10 @@ export const BandViews = ({ currentUser }) => {
         <Route
           path="mybands/:bandId/details/edit"
           element={<EditBand currentUser={currentUser} />}
+        />
+        <Route
+          path="addshow"
+          element={<CreateShow currentUser={currentUser} />}
         />
       </Route>
     </Routes>
