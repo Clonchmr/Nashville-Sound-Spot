@@ -1,6 +1,5 @@
 .card {
   width: 20rem;
-  cursor: pointer;
 }
 
 .delete-band-btn {
@@ -17,4 +16,5 @@
 
 .my-bands-cards:hover {
   box-shadow: 0 0 0.1rem gray;
+  cursor: pointer;
 }

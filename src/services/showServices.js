@@ -4,6 +4,12 @@ export const GetAllShows = () => {
   );
 };
 
+export const GetShowsByBandId = (bandId) => {
+  return fetch(
+    `http://localhost:8088/shows?bandId=${bandId}&_expand=venue`
+  ).then((res) => res.json());
+};
+
 export const CreateNewShow = (showObj) => {
   return fetch(`http://localhost:8088/shows`, {
     method: "POST",

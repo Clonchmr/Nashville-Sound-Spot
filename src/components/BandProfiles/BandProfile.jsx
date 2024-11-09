@@ -6,9 +6,11 @@ import {
   GetBandsByUser,
 } from "../../services/BandServices";
 import "../../styles/bands.css";
+import { GetShowsByBandId } from "../../services/showServices";
 
 export const BandProfile = ({ currentUser }) => {
   const [currentBand, setCurrentBand] = useState({});
+  const [shows, setShows] = useState([]);
 
   const navigate = useNavigate();
 
@@ -16,7 +18,20 @@ export const BandProfile = ({ currentUser }) => {
 
   useEffect(() => {
     GetBandById(bandId).then(setCurrentBand);
+    GetShowsByBandId(bandId).then(setShows);
   }, [bandId]);
+
+  useEffect(() => {
+    const sortShows = () => {
+      const filterByDate = shows.toSorted(
+        (firstItem, secondItem) =>
+          new Date(firstItem.date) - new Date(secondItem.date)
+      );
+      setShows(filterByDate);
+    };
+
+    sortShows();
+  }, [shows.length]);
 
   const handleDelete = (e) => {
     DeleteBand(bandId)
@@ -61,10 +76,27 @@ export const BandProfile = ({ currentUser }) => {
               <p className="card-text">{currentBand.description}</p>
             </div>
           </div>
+          <div className="band-shows-container">
+            <div className="card mt-5">
+              <div className="card-body">
+                {shows.length > 0 ? (
+                  shows.map((show) => {
+                    return (
+                      <p key={show.id} className="card-text">
+                        {show.date} at {show.venue.name}
+                      </p>
+                    );
+                  })
+                ) : (
+                  <p className="card-text">No shows currently scheduled </p>
+                )}
+              </div>
+            </div>
+          </div>
         </div>
         {currentUser.id === currentBand.userId ? (
           <button
-            className="btn btn-secondary mt-5 delete-band-btn"
+            className="btn btn-secondary mt-5 mb-4 delete-band-btn"
             onClick={handleDelete}
           >
             Delete Band
