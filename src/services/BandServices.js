@@ -9,9 +9,7 @@ export const CreateNewBand = (bandObj) => {
 };
 
 export const GetBandsByUser = async (userId) => {
-  const response = await fetch(
-    `http://localhost:8088/bands?_userId = ${userId}`
-  );
+  const response = await fetch(`http://localhost:8088/bands?userId=${userId}`);
   const data = await response.json();
 
   return Array.isArray(data) ? data : [data];

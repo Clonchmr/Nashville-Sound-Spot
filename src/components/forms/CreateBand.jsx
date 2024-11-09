@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getAllGenres } from "../../services/genreServices";
-import { CreateNewBand } from "../../services/BandServices";
+import { CreateNewBand, GetBandsByUser } from "../../services/BandServices";
 import { useNavigate } from "react-router-dom";
 
 export const CreateBand = ({ currentUser }) => {
@@ -8,7 +8,8 @@ export const CreateBand = ({ currentUser }) => {
   const [name, setName] = useState("");
   const [genre, setGenre] = useState("");
   const [bio, setBio] = useState("");
-  const [imageUrl, setImageUrl] = useState("");
+  const [imageUrl, setImageUrl] = useState(""); //need to refactor all of this
+  const [allBands, setAllBands] = useState({});
 
   const navigate = useNavigate();
 
@@ -51,7 +52,10 @@ export const CreateBand = ({ currentUser }) => {
       genreId: parseInt(genre),
       profilePicture: imageUrl,
     };
-    CreateNewBand(newBand).then(navigate("/"));
+    CreateNewBand(newBand)
+      .then(GetBandsByUser(currentUser.id))
+      .then(setAllBands)
+      .then(navigate("/mybands"));
   };
   return (
     <form>

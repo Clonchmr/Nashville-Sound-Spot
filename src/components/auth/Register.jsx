@@ -18,7 +18,7 @@ export const Register = (props) => {
           "sound_spot_user",
           JSON.stringify({
             id: createdUser.id,
-            band: createdUser.isBand,
+            isBand: createdUser.isBand,
           })
         );
 

@@ -7,3 +7,14 @@
   width: 10rem !important;
   margin: 0 auto;
 }
+
+.my-bands-container {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.my-bands-cards:hover {
+  box-shadow: 0 0 0.1rem gray;
+}

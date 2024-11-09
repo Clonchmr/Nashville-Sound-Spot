@@ -12,37 +12,41 @@ export const MyBands = ({ currentUser }) => {
     GetBandsByUser(currentUser.id).then(setUserBands);
   }, [currentUser]);
   return (
-    <div className="container">
-      {Array.isArray(userBands) && userBands.length > 0 ? (
-        userBands.map((band) => (
-          <div
-            key={band.id}
-            className="card col mb-3 border-secondary text-center"
-            onClick={() => {
-              navigate(`/mybands/${band.id}/details`);
-            }}
-          >
-            <img
-              className="card-img-top"
-              alt={`${band.bandName} profile picture`}
-              src={`${band.profilePicture}`}
-            />
-            <div className="card-body">
-              <h5 className="card-title">{band.bandName}</h5>
+    <>
+      <div className="container my-bands-container">
+        {Array.isArray(userBands) && userBands.length > 0 ? (
+          userBands.map((band) => (
+            <div
+              key={band.id}
+              className="card mb-3 border-secondary text-center my-bands-cards"
+              onClick={() => {
+                navigate(`/mybands/${band.id}/details`);
+              }}
+            >
+              <img
+                className="card-img-top"
+                alt={`${band.bandName} profile picture`}
+                src={`${band.profilePicture}`}
+              />
+              <div className="card-body">
+                <h5 className="card-title">{band.bandName}</h5>
+              </div>
             </div>
-          </div>
-        ))
-      ) : (
-        <p>You have no current bands</p>
-      )}
-      <button
-        className="btn btn-dark"
-        onClick={() => {
-          navigate("/create");
-        }}
-      >
-        Create a band
-      </button>
-    </div>
+          ))
+        ) : (
+          <p>You have no current bands</p>
+        )}
+      </div>
+      <div>
+        <button
+          className="btn btn-dark mt-5 mb-5"
+          onClick={() => {
+            navigate("/create");
+          }}
+        >
+          Create a band
+        </button>
+      </div>
+    </>
   );
 };

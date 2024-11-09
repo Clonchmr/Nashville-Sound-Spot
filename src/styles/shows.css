@@ -1,0 +1,22 @@
+.shows-container .card {
+  width: 80%;
+  margin: 1.3rem auto;
+}
+
+.shows-card .btn {
+  width: 15%;
+  height: 10%;
+  margin: auto;
+}
+
+.shows-card:hover {
+  box-shadow: 0 0 0.1rem gray;
+}
+
+.shows-container .btn {
+  margin-right: 1rem;
+}
+
+.show-select {
+  width: 30% !important;
+}

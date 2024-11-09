@@ -26,7 +26,7 @@ export const BandNav = () => {
               <Link className="nav-link" to={"/mybands"}>
                 <li className="nav-item me-5">My Bands</li>
               </Link>
-              <Link className="nav-link">
+              <Link className="nav-link" to={"/myshows"}>
                 <li className="nav-item me-5">My Shows</li>
               </Link>
               <Link className="nav-link" to={"/addshow"}>
