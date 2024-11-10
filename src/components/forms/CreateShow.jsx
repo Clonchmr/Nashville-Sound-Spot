@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import { GetAllVenues } from "../../services/venueServices";
 import { GetBandsByUser } from "../../services/BandServices";
-import { CreateNewShow } from "../../services/showServices";
+import { CreateNewShow, GetAllShows } from "../../services/showServices";
 import { useNavigate } from "react-router-dom";
 
 export const CreateShow = ({ currentUser }) => {
   const [venues, setVenues] = useState([]);
   const [userBands, setUserBands] = useState([]);
   const [show, setShow] = useState({});
+  const [allShows, setAllShows] = useState([]);
 
   const navigate = useNavigate();
 
@@ -24,7 +25,10 @@ export const CreateShow = ({ currentUser }) => {
       date: show.date,
     };
 
-    CreateNewShow(showObj).then(navigate("/myshows"));
+    CreateNewShow(showObj)
+      .then(GetAllShows())
+      .then(setAllShows)
+      .then(navigate("/myshows"));
   };
   return (
     <form>

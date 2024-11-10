@@ -16,6 +16,6 @@ export const ApplicationViews = () => {
   return currentUser.isBand ? (
     <BandViews currentUser={currentUser} />
   ) : (
-    <FanViews />
+    <FanViews currentUser={currentUser} />
   );
 };

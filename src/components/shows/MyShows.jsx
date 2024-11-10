@@ -33,6 +33,7 @@ export const MyShows = ({ currentUser }) => {
     await CancelShow(showId);
     const updatedShows = await GetAllShows();
     setAllShows(updatedShows);
+    setFilteredShows(updatedShows);
   };
 
   const handleFilterBands = (e) => {
@@ -65,13 +66,7 @@ export const MyShows = ({ currentUser }) => {
           .filter((show) => show.band.userId === currentUser.id)
           .map((show) => {
             return (
-              <div
-                key={show.id}
-                className="card shows-card"
-                onClick={() => {
-                  navigate(`/myshows/editshow/${show.id}`);
-                }}
-              >
+              <div key={show.id} className="card shows-card">
                 <div className="card-body row">
                   <div className="col">
                     <p className="card-text">{show.band.bandName}</p>
@@ -83,6 +78,14 @@ export const MyShows = ({ currentUser }) => {
                   </div>
                   <button
                     className="btn btn-dark"
+                    onClick={() => {
+                      navigate(`/myshows/editshow/${show.id}`);
+                    }}
+                  >
+                    Edit Show
+                  </button>
+                  <button
+                    className="btn btn-secondary"
                     onClick={() => {
                       handleCancelShow(show.id);
                     }}
