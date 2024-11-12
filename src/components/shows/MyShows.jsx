@@ -44,6 +44,7 @@ export const MyShows = ({ currentUser }) => {
       setFilteredShows(allShows);
     } else setFilteredShows(filteredShowsByBandId);
   };
+
   return (
     <div className="container">
       <h3 className="mb-5">Your upcoming shows:</h3>

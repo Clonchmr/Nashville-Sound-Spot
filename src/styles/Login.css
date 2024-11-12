@@ -7,3 +7,12 @@
 .welcome-card {
   margin: 0 auto;
 }
+
+.container-login {
+  text-align: center;
+}
+
+.form-login .form-control {
+  width: 40%;
+  margin: 1rem auto;
+}

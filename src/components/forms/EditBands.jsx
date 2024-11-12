@@ -32,6 +32,7 @@ export const EditBand = ({ currentUser }) => {
     };
     UpdateBand(bandId, bandEdit)
       .then(GetBandById(bandId))
+      .then(setBandToEdit)
       .then(navigate(`/mybands/${bandId}/details`));
   };
   return (

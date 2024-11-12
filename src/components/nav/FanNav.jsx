@@ -1,6 +1,7 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export const FanNav = () => {
+  const navigate = useNavigate();
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-body-tertiary border-bottom border-body mb-5">
@@ -36,9 +37,22 @@ export const FanNav = () => {
               </Link>
             </ul>
             <ul className="navbar-nav">
-              <Link className="nav-link">
-                <li className="nav-item logout">Logout</li>
-              </Link>
+              {localStorage.getItem("sound_spot_user") ? (
+                <li className="navbar-item navbar-logout">
+                  <Link
+                    className="navbar-link"
+                    to=""
+                    onClick={() => {
+                      localStorage.removeItem("sound_spot_user");
+                      navigate("/", { replace: true });
+                    }}
+                  >
+                    Logout
+                  </Link>
+                </li>
+              ) : (
+                ""
+              )}
             </ul>
           </div>
         </div>

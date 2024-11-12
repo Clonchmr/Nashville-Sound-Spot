@@ -32,8 +32,8 @@ export const Login = () => {
     <main className="container-login">
       <section>
         <form className="form-login" onSubmit={handleLogin}>
-          <h1>Nashville Sound Spot</h1>
-          <h2>Please sign in</h2>
+          <h1 className="mt-5">Nashville Sound Spot</h1>
+          <h2 className="mt-5">Please sign in</h2>
           <fieldset>
             <div className="form-group">
               <input
@@ -49,7 +49,10 @@ export const Login = () => {
           </fieldset>
           <fieldset>
             <div className="form-group">
-              <button className="login-btn btn-info" type="submit">
+              <button
+                className="login-btn btn-dark btn mb-3 mt-3"
+                type="submit"
+              >
                 Sign in
               </button>
             </div>

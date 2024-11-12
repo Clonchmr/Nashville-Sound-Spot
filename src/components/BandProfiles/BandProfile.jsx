@@ -18,6 +18,9 @@ export const BandProfile = ({ currentUser }) => {
 
   useEffect(() => {
     GetBandById(bandId).then(setCurrentBand);
+  }, [bandId, currentBand.genreId]);
+
+  useEffect(() => {
     GetShowsByBandId(bandId).then(setShows);
   }, [bandId]);
 

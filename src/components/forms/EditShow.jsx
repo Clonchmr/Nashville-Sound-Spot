@@ -2,12 +2,17 @@ import { useEffect, useState } from "react";
 import { GetAllVenues } from "../../services/venueServices";
 import { GetBandsByUser } from "../../services/BandServices";
 import { useNavigate, useParams } from "react-router-dom";
-import { EditShowDetails, GetShowById } from "../../services/showServices";
+import {
+  EditShowDetails,
+  GetAllShows,
+  GetShowById,
+} from "../../services/showServices";
 
 export const EditShow = ({ currentUser }) => {
   const [venues, setVenues] = useState([]);
   const [userBands, setUserBands] = useState([]);
   const [showToEdit, setShowToEdit] = useState({});
+  const [allShows, setAllShows] = useState([]);
 
   const { showId } = useParams();
 
@@ -15,6 +20,7 @@ export const EditShow = ({ currentUser }) => {
 
   useEffect(() => {
     GetAllVenues().then(setVenues);
+    GetAllShows().then(setAllShows);
     GetBandsByUser(currentUser.id).then(setUserBands);
     GetShowById(showId).then(setShowToEdit);
   }, [currentUser, showId]);
@@ -27,7 +33,10 @@ export const EditShow = ({ currentUser }) => {
       date: showToEdit.date,
     };
 
-    EditShowDetails(showId, showObj).then(navigate("/myshows"));
+    EditShowDetails(showId, showObj)
+      .then(GetAllShows())
+      .then(setAllShows(allShows))
+      .then(navigate("/myshows"));
   };
 
   return (

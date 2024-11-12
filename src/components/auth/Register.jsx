@@ -49,7 +49,7 @@ export const Register = (props) => {
   return (
     <main style={{ textAlign: "center" }}>
       <form className="form-login" onSubmit={handleRegister}>
-        <h1>Nashville Sound Spot</h1>
+        <h1 className="mt-5 mb-5">Nashville Sound Spot</h1>
         <h2>Please Register</h2>
         <fieldset>
           <div className="form-group">
@@ -87,6 +87,7 @@ export const Register = (props) => {
                 }}
                 type="checkbox"
                 id="isBand"
+                className="mb-3"
               />
               I am a band{" "}
             </label>
