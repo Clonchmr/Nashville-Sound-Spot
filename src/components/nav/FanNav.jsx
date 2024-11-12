@@ -40,7 +40,7 @@ export const FanNav = () => {
               {localStorage.getItem("sound_spot_user") ? (
                 <li className="navbar-item navbar-logout">
                   <Link
-                    className="navbar-link"
+                    className="nav-link"
                     to=""
                     onClick={() => {
                       localStorage.removeItem("sound_spot_user");
