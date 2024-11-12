@@ -26,7 +26,7 @@ export const FanNav = () => {
               <Link className="nav-link" to={"/myprofile"}>
                 <li className="nav-item me-5">My Profile</li>
               </Link>
-              <Link className="nav-link" to={""}>
+              <Link className="nav-link" to={"/bands"}>
                 <li className="nav-item me-5">Bands</li>
               </Link>
               <Link className="nav-link" to={""}>

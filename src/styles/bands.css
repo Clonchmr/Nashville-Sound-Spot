@@ -18,3 +18,22 @@
   box-shadow: 0 0 0.1rem gray;
   cursor: pointer;
 }
+
+.search-filter-header {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 4rem;
+}
+
+.search-filter-header .form-select,
+.search-filter-header .form-control {
+  width: 40%;
+}
+
+.band-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 5rem;
+  margin-bottom: 4rem;
+}
