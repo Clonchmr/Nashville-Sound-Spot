@@ -9,8 +9,8 @@ import "../../styles/bands.css";
 import { GetShowsByBandId } from "../../services/showServices";
 import {
   AddFavoriteBand,
-  GetCurrentFavorite,
-  GetUserFavorites,
+  GetCurrentFavoriteBand,
+  GetUserBandFavorites,
   RemoveFavoriteBand,
 } from "../../services/fanServices";
 
@@ -27,7 +27,7 @@ export const BandProfile = ({ currentUser }) => {
 
   useEffect(() => {
     GetBandById(bandId).then(setCurrentBand);
-    GetCurrentFavorite(bandId).then(setCurrentFavorite);
+    GetCurrentFavoriteBand(bandId).then(setCurrentFavorite);
     setIsFavorite(
       userFavorites?.length > 0 &&
         userFavorites.some((favorite) => favorite.bandId === currentBand.id)
@@ -35,7 +35,7 @@ export const BandProfile = ({ currentUser }) => {
   }, [bandId, currentBand.genreId, userFavorites, currentBand.id]);
 
   useEffect(() => {
-    GetUserFavorites(currentUser.id).then(setUserFavorites);
+    GetUserBandFavorites(currentUser.id).then(setUserFavorites);
   }, [currentUser, userFavorites.length]);
 
   useEffect(() => {
@@ -66,14 +66,14 @@ export const BandProfile = ({ currentUser }) => {
       bandId: parseInt(bandId),
     };
     AddFavoriteBand(bandObj)
-      .then(GetUserFavorites())
+      .then(GetUserBandFavorites())
       .then(setUserFavorites)
       .then(navigate("/favorites"));
   };
 
   const handleRemoveFavoriteBand = () => {
     RemoveFavoriteBand(currentFavorite[0].id)
-      .then(GetUserFavorites())
+      .then(GetUserBandFavorites())
       .then(setUserFavorites);
   };
 

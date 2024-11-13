@@ -30,14 +30,42 @@ export const RemoveFavoriteBand = (favoriteBandId) => {
   });
 };
 
-export const GetUserFavorites = (userId) => {
+export const GetUserBandFavorites = (userId) => {
   return fetch(`http://localhost:8088/fanFavoriteBands?userId=${userId}`).then(
     (res) => res.json()
   );
 };
 
-export const GetCurrentFavorite = (bandId) => {
+export const GetCurrentFavoriteBand = (bandId) => {
   return fetch(`http://localhost:8088/fanFavoriteBands?bandId=${bandId}`).then(
     (res) => res.json()
   );
+};
+
+export const GetCurrentFavoriteVenue = (venueId) => {
+  return fetch(
+    `http://localhost:8088/fanFavoriteVenues?venueId=${venueId}`
+  ).then((res) => res.json());
+};
+
+export const GetFavoriteVenuesByUser = (userId) => {
+  return fetch(`http://localhost:8088/fanFavoriteVenues?userId=${userId}`).then(
+    (res) => res.json()
+  );
+};
+
+export const AddFavoriteVenue = (venueObj) => {
+  return fetch(`http://localhost:8088/fanFavoriteVenues`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(venueObj),
+  });
+};
+
+export const RemoveFavoriteVenue = (favoriteId) => {
+  return fetch(`http://localhost:8088/fanFavoriteVenues/${favoriteId}`, {
+    method: "DELETE",
+  });
 };

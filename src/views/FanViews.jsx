@@ -4,6 +4,8 @@ import { Welcome } from "../components/welcome/Welcome";
 import { FanProfile } from "../components/FanProfiles/FanProfile";
 import { AllBands } from "../components/FanProfiles/AllBands";
 import { BandProfile } from "../components/BandProfiles/BandProfile";
+import { AllVenues } from "../components/venues/AllVenues";
+import { VenueDetails } from "../components/venues/VenueDetails";
 
 export const FanViews = ({ currentUser }) => {
   return (
@@ -26,6 +28,11 @@ export const FanViews = ({ currentUser }) => {
         <Route
           path="bands/:bandId"
           element={<BandProfile currentUser={currentUser} />}
+        />
+        <Route path="venues" element={<AllVenues />} />
+        <Route
+          path="venues/:venueId"
+          element={<VenueDetails currentUser={currentUser} />}
         />
       </Route>
     </Routes>

@@ -32,7 +32,7 @@ export const FanNav = () => {
               <Link className="nav-link" to={""}>
                 <li className="nav-item me-5">Favorites</li>
               </Link>
-              <Link className="nav-link">
+              <Link className="nav-link" to={"/venues"}>
                 <li className="nav-item me-5">Venues</li>
               </Link>
             </ul>

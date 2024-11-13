@@ -1,0 +1,48 @@
+.venues-container {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 3rem;
+  margin-bottom: 2rem;
+}
+
+.venues-container .card-body {
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.venues-header {
+  display: flex;
+  justify-content: space-around;
+}
+
+.venues-container .card-title {
+  margin-bottom: 2rem;
+}
+
+.venues-header .form-control {
+  margin-bottom: 3rem;
+}
+
+.venues-container .card {
+  width: 30%;
+}
+
+.venues-container .card:hover {
+  box-shadow: 0 0 0.1rem gray;
+  cursor: pointer;
+}
+
+.venue-details-container .card {
+  margin: 0 auto;
+  width: 80%;
+  padding: 2rem;
+}
+
+.venue-details-container .card-text {
+  line-height: 2rem;
+}
+
+#shows-card-title {
+  text-decoration: underline;
+}
