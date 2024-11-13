@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { GetAllBands, GetAllGenres } from "../../services/fanServices";
+import { useNavigate } from "react-router-dom";
 
 export const AllBands = ({ currentUser }) => {
   const [allBands, setAllBands] = useState([]);
@@ -7,6 +8,8 @@ export const AllBands = ({ currentUser }) => {
   const [filteredBands, setFilteredBands] = useState([]);
   const [searchText, setSearchText] = useState("");
   const [selectedGenre, setSelectedGenre] = useState("");
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     GetAllBands().then(setAllBands);
@@ -71,7 +74,13 @@ export const AllBands = ({ currentUser }) => {
         {filteredBands.length > 0 ? (
           filteredBands.map((band) => {
             return (
-              <div key={band.id} className="card border-secondary text-center">
+              <div
+                key={band.id}
+                className="card border-secondary text-center"
+                onClick={(e) => {
+                  navigate(`/bands/${band.id}`);
+                }}
+              >
                 <img
                   className="card-img-top"
                   src={band.profilePicture}

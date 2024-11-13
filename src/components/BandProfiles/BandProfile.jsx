@@ -7,18 +7,36 @@ import {
 } from "../../services/BandServices";
 import "../../styles/bands.css";
 import { GetShowsByBandId } from "../../services/showServices";
+import {
+  AddFavoriteBand,
+  GetCurrentFavorite,
+  GetUserFavorites,
+  RemoveFavoriteBand,
+} from "../../services/fanServices";
 
 export const BandProfile = ({ currentUser }) => {
   const [currentBand, setCurrentBand] = useState({});
   const [shows, setShows] = useState([]);
-
-  const navigate = useNavigate();
+  const [userFavorites, setUserFavorites] = useState([]);
+  const [isFavorite, setIsFavorite] = useState(false);
+  const [currentFavorite, setCurrentFavorite] = useState({});
 
   const { bandId } = useParams();
 
+  const navigate = useNavigate();
+
   useEffect(() => {
     GetBandById(bandId).then(setCurrentBand);
-  }, [bandId, currentBand.genreId]);
+    GetCurrentFavorite(bandId).then(setCurrentFavorite);
+    setIsFavorite(
+      userFavorites?.length > 0 &&
+        userFavorites.some((favorite) => favorite.bandId === currentBand.id)
+    );
+  }, [bandId, currentBand.genreId, userFavorites, currentBand.id]);
+
+  useEffect(() => {
+    GetUserFavorites(currentUser.id).then(setUserFavorites);
+  }, [currentUser, userFavorites.length]);
 
   useEffect(() => {
     GetShowsByBandId(bandId).then(setShows);
@@ -40,6 +58,23 @@ export const BandProfile = ({ currentUser }) => {
     DeleteBand(bandId)
       .then(GetBandsByUser(currentUser.id))
       .then(navigate("/mybands"));
+  };
+
+  const handleAddFavorite = () => {
+    const bandObj = {
+      userId: currentUser.id,
+      bandId: parseInt(bandId),
+    };
+    AddFavoriteBand(bandObj)
+      .then(GetUserFavorites())
+      .then(setUserFavorites)
+      .then(navigate("/favorites"));
+  };
+
+  const handleRemoveFavoriteBand = () => {
+    RemoveFavoriteBand(currentFavorite[0].id)
+      .then(GetUserFavorites())
+      .then(setUserFavorites);
   };
 
   return (
@@ -66,8 +101,17 @@ export const BandProfile = ({ currentUser }) => {
                 >
                   Edit Profile
                 </button>
+              ) : isFavorite ? (
+                <button
+                  className="btn btn-dark"
+                  onClick={handleRemoveFavoriteBand}
+                >
+                  Remove from favorites
+                </button>
               ) : (
-                " "
+                <button className="btn btn-dark" onClick={handleAddFavorite}>
+                  Add favorite
+                </button>
               )}
             </div>
           </div>
