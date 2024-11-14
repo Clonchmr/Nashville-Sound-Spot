@@ -14,7 +14,7 @@ export const AllBands = ({ currentUser }) => {
   useEffect(() => {
     GetAllBands().then(setAllBands);
     GetAllGenres().then(setAllGenres);
-  }, [currentUser]);
+  }, [currentUser, allBands.length]);
 
   useEffect(() => {
     GetAllBands().then(setFilteredBands);
@@ -48,9 +48,10 @@ export const AllBands = ({ currentUser }) => {
 
   return (
     <div className="container">
-      <header className="search-filter-header">
+      <form className="search-filter-header">
         <select
           className="form-select"
+          id="genre-filter"
           defaultValue=""
           onChange={handleBandFilter}
         >
@@ -65,12 +66,13 @@ export const AllBands = ({ currentUser }) => {
         </select>
         <input
           className="form-control"
+          id="band-name-search"
           type="text"
           placeholder="Search by band name..."
           onChange={handleBandSearch}
         ></input>
-      </header>
-      <div className="band-cards-container">
+      </form>
+      <div className="band-cards-container offset-1">
         {filteredBands.length > 0 ? (
           filteredBands.map((band) => {
             return (

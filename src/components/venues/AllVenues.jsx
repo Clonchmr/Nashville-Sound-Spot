@@ -42,9 +42,9 @@ export const AllVenues = () => {
   }, [searchText, allVenues]);
   return (
     <div className="container">
-      <form className="venues-header">
+      <form className="venues-header mb-5">
         <div>
-          <label htmlFor="#venue-search" className="form-label">
+          <label htmlFor="venue-search" className="form-label">
             Search venues
           </label>
           <input
@@ -58,7 +58,7 @@ export const AllVenues = () => {
           ></input>
         </div>
         <div>
-          <label htmlFor="#sort-method" className="form-label">
+          <label htmlFor="sort-method" className="form-label">
             Sort by:
           </label>
           <select
@@ -85,7 +85,7 @@ export const AllVenues = () => {
               }}
             >
               <div className="card-body">
-                <h4 className="card-title">{venue.name}</h4>
+                <h4 className="card-title mb-4">{venue.name}</h4>
                 <h6 className="card-subtitle">Capacity: {venue.capacity}</h6>
               </div>
             </div>

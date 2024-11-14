@@ -1,7 +1,6 @@
 .venues-container {
   display: flex;
   flex-wrap: wrap;
-
   gap: 3rem;
   margin-bottom: 2rem;
 }
@@ -16,14 +15,6 @@
   justify-content: space-around;
 }
 
-.venues-container .card-title {
-  margin-bottom: 2rem;
-}
-
-.venues-header .form-control {
-  margin-bottom: 3rem;
-}
-
 .venues-container .card {
   width: 30%;
 }
@@ -36,13 +27,8 @@
 .venue-details-container .card {
   margin: 0 auto;
   width: 80%;
-  padding: 2rem;
 }
 
 .venue-details-container .card-text {
   line-height: 2rem;
-}
-
-#shows-card-title {
-  text-decoration: underline;
 }

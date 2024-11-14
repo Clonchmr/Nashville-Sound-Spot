@@ -27,14 +27,13 @@
 
 .search-filter-header .form-select,
 .search-filter-header .form-control {
-  width: 40%;
+  width: 20%;
 }
 
 .band-cards-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
-  gap: 5rem;
+  gap: 6rem;
   margin-bottom: 4rem;
 }
 

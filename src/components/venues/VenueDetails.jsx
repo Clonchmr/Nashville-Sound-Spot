@@ -78,10 +78,10 @@ export const VenueDetails = ({ currentUser }) => {
         </div>
       </div>
       <div className="card border-secondary">
+        <h4 className="card-header text-center mb-5" id="shows-card-title">
+          Upcoming Shows
+        </h4>
         <div className="card-body">
-          <h4 className="card-title text-center mb-5" id="shows-card-title">
-            Upcoming Shows
-          </h4>
           {sortedShows.length > 0 ? (
             <ul className="shows-list list-unstyled row text-center">
               {sortedShows.map((show) => {
