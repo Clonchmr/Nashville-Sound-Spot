@@ -4,11 +4,14 @@ import {
   GetFavoriteVenuesByUser,
   GetUserBandFavorites,
 } from "../../services/fanServices";
+import { Link, useNavigate } from "react-router-dom";
 
 export const FanProfile = ({ currentUser }) => {
   const [currentFan, setCurrentFan] = useState({});
   const [favoriteBands, setFavoriteBands] = useState([]);
   const [favoriteVenues, setFavoriteVenues] = useState([]);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     GetFanById(currentUser.id).then(setCurrentFan);
@@ -31,7 +34,7 @@ export const FanProfile = ({ currentUser }) => {
             </div>
           </div>
         </div>
-        <div className="col-md-5 offset-md-1">
+        <div className="fan-favorites-container col-md-5 offset-md-1">
           <div className="row">
             <div className="col">
               <div className="card border-secondary text-center mb-5">
@@ -42,7 +45,12 @@ export const FanProfile = ({ currentUser }) => {
                       favoriteBands.map((b) => {
                         return (
                           <li key={b.id} className="list-group-item mb-1">
-                            {b.band.bandName}
+                            <Link
+                              className="link-dark link-opacity-75"
+                              to={`/bands/${b.band.id}`}
+                            >
+                              {b.band.bandName}
+                            </Link>
                           </li>
                         );
                       })
@@ -64,7 +72,12 @@ export const FanProfile = ({ currentUser }) => {
                       favoriteVenues.map((v) => {
                         return (
                           <li key={v.id} className="list-group-item mb-1">
-                            {v.venue.name}
+                            <Link
+                              className="link-dark link-opacity-75"
+                              to={`/venues/${v.venue.id}`}
+                            >
+                              {v.venue.name}
+                            </Link>
                           </li>
                         );
                       })
