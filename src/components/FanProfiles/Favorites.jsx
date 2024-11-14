@@ -65,7 +65,7 @@ export const Favorites = ({ currentUser }) => {
             );
           })
         ) : (
-          <h5>No current bands found</h5>
+          <p>No current favorite bands</p>
         )}
       </section>
       <section className="favorite-venues-container text-center">
@@ -99,7 +99,7 @@ export const Favorites = ({ currentUser }) => {
             );
           })
         ) : (
-          <h3>No Venues Detected</h3>
+          <p>No current favorite venues</p>
         )}
       </section>
     </div>

@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "../../styles/Login.css";
 import { useNavigate } from "react-router-dom";
 import { createUser, getUserByEmail } from "../../services/userServices";
+import { GetAllGenres, SetFavoriteGenres } from "../../services/fanServices";
 
 export const Register = (props) => {
   const [fan, setFan] = useState({
@@ -9,22 +10,40 @@ export const Register = (props) => {
     name: "",
     isBand: false,
   });
+  const [bandChecked, setBandChecked] = useState(false);
+  const [genres, setGenres] = useState([]);
+  const [selectedGenres, setSelectedGenres] = useState([]);
+
   let navigate = useNavigate();
 
-  const registerNewUser = () => {
-    createUser(fan).then((createdUser) => {
-      if (createdUser.hasOwnProperty("id")) {
-        localStorage.setItem(
-          "sound_spot_user",
-          JSON.stringify({
-            id: createdUser.id,
-            isBand: createdUser.isBand,
-          })
-        );
+  useEffect(() => {
+    GetAllGenres().then(setGenres);
+  }, []);
 
-        navigate("/");
+  const registerNewUser = async () => {
+    const createdUser = await createUser(fan);
+
+    if (createdUser.hasOwnProperty("id")) {
+      // Store user in localStorage
+      localStorage.setItem(
+        "sound_spot_user",
+        JSON.stringify({
+          id: createdUser.id,
+          isBand: createdUser.isBand,
+        })
+      );
+      if (!bandChecked) {
+        for (let genreId of selectedGenres) {
+          const genreObj = {
+            userId: createdUser.id,
+            genreId: genreId,
+          };
+          await SetFavoriteGenres(genreObj);
+        }
       }
-    });
+
+      navigate("/");
+    }
   };
 
   const handleRegister = (e) => {
@@ -44,6 +63,14 @@ export const Register = (props) => {
     const copy = { ...fan };
     copy[evt.target.id] = evt.target.value;
     setFan(copy);
+  };
+
+  const handleGenreChoice = (genreId, isChecked) => {
+    if (isChecked) {
+      setSelectedGenres([...selectedGenres, genreId]);
+    } else {
+      setSelectedGenres(selectedGenres.filter((id) => id !== genreId));
+    }
   };
 
   return (
@@ -84,14 +111,44 @@ export const Register = (props) => {
                   const copy = { ...fan };
                   copy.isBand = evt.target.checked;
                   setFan(copy);
+                  setBandChecked(evt.target.checked);
                 }}
                 type="checkbox"
                 id="isBand"
-                className="mb-3"
+                className="mb-5"
               />
               I am a band{" "}
             </label>
           </div>
+        </fieldset>
+        <fieldset>
+          {!bandChecked && (
+            <div className="container">
+              <div className=" row row-cols-2 row-cols-md-4 gy-2 genre-choices offset-3 mb-5">
+                {genres.map((g) => {
+                  return (
+                    <div className="col genre-choice" key={g.id}>
+                      <div className="form-check">
+                        <label htmlFor={g.id} className="form-check-label">
+                          <input
+                            className="form-check-input mb-2"
+                            id={g.id}
+                            type="checkbox"
+                            name={g.id}
+                            value={g.id}
+                            onChange={(e) =>
+                              handleGenreChoice(g.id, e.target.checked)
+                            }
+                          />{" "}
+                          {g.type}
+                        </label>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          )}
         </fieldset>
         <fieldset>
           <div className="form-group">

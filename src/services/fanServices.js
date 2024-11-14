@@ -69,3 +69,13 @@ export const RemoveFavoriteVenue = (favoriteId) => {
     method: "DELETE",
   });
 };
+
+export const SetFavoriteGenres = (genreObj) => {
+  return fetch(`http://localhost:8088/fanFavoriteGenres`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(genreObj),
+  });
+};

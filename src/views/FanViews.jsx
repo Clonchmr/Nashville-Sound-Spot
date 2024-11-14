@@ -7,6 +7,7 @@ import { BandProfile } from "../components/BandProfiles/BandProfile";
 import { AllVenues } from "../components/venues/AllVenues";
 import { VenueDetails } from "../components/venues/VenueDetails";
 import { Favorites } from "../components/FanProfiles/Favorites";
+import { EditFanProfile } from "../components/forms/EditFanProfile";
 
 export const FanViews = ({ currentUser }) => {
   return (
@@ -38,6 +39,10 @@ export const FanViews = ({ currentUser }) => {
         <Route
           path="favorites"
           element={<Favorites currentUser={currentUser} />}
+        />
+        <Route
+          path="myprofile/edit"
+          element={<EditFanProfile currentUser={currentUser} />}
         />
       </Route>
     </Routes>

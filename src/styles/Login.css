@@ -16,3 +16,11 @@
   width: 40%;
   margin: 1rem auto;
 }
+
+.genre-choices {
+  width: 50%;
+}
+
+.form-check {
+  text-align: left;
+}

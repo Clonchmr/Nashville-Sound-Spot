@@ -30,7 +30,14 @@ export const FanProfile = ({ currentUser }) => {
             <div className="card-body">
               <h4 className="card-title mb-5 mt-5">{currentFan.name}</h4>
               <h6 className="card-subtitle mb-5">Favorite Genres</h6>
-              <button className="btn btn-dark">Edit Profile</button>
+              <button
+                className="btn btn-dark"
+                onClick={() => {
+                  navigate(`/myprofile/edit`);
+                }}
+              >
+                Edit Profile
+              </button>
             </div>
           </div>
         </div>
@@ -55,7 +62,9 @@ export const FanProfile = ({ currentUser }) => {
                         );
                       })
                     ) : (
-                      <li className="list-item">No current favorite bands</li>
+                      <li className="list-item list-unstyled">
+                        No current favorite bands
+                      </li>
                     )}
                   </ul>
                 </div>
@@ -82,7 +91,9 @@ export const FanProfile = ({ currentUser }) => {
                         );
                       })
                     ) : (
-                      <li className="list-item">No current favorite venues</li>
+                      <li className="list-item list-unstyled">
+                        No current favorite venues
+                      </li>
                     )}
                   </ul>
                 </div>
