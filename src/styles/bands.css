@@ -37,3 +37,8 @@
   gap: 5rem;
   margin-bottom: 4rem;
 }
+
+.band-cards-container .card:hover {
+  box-shadow: 0 0 0.1rem grey;
+  cursor: pointer;
+}

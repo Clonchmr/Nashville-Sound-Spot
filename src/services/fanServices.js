@@ -31,9 +31,9 @@ export const RemoveFavoriteBand = (favoriteBandId) => {
 };
 
 export const GetUserBandFavorites = (userId) => {
-  return fetch(`http://localhost:8088/fanFavoriteBands?userId=${userId}`).then(
-    (res) => res.json()
-  );
+  return fetch(
+    `http://localhost:8088/fanFavoriteBands?userId=${userId}&_expand=band`
+  ).then((res) => res.json());
 };
 
 export const GetCurrentFavoriteBand = (bandId) => {
@@ -49,9 +49,9 @@ export const GetCurrentFavoriteVenue = (venueId) => {
 };
 
 export const GetFavoriteVenuesByUser = (userId) => {
-  return fetch(`http://localhost:8088/fanFavoriteVenues?userId=${userId}`).then(
-    (res) => res.json()
-  );
+  return fetch(
+    `http://localhost:8088/fanFavoriteVenues?userId=${userId}&_expand=venue`
+  ).then((res) => res.json());
 };
 
 export const AddFavoriteVenue = (venueObj) => {

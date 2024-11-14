@@ -1,0 +1,10 @@
+.favorites-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.favorite-bands-container .card-img-top:hover,
+.favorite-venues-container .card-title:hover {
+  cursor: pointer;
+  text-shadow: 0 0 0.1rem whitesmoke;
+}

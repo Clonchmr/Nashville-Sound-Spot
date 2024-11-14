@@ -66,14 +66,14 @@ export const BandProfile = ({ currentUser }) => {
       bandId: parseInt(bandId),
     };
     AddFavoriteBand(bandObj)
-      .then(GetUserBandFavorites())
+      .then(GetUserBandFavorites(currentUser.id))
       .then(setUserFavorites)
       .then(navigate("/favorites"));
   };
 
   const handleRemoveFavoriteBand = () => {
     RemoveFavoriteBand(currentFavorite[0].id)
-      .then(GetUserBandFavorites())
+      .then(GetUserBandFavorites(currentUser.id))
       .then(setUserFavorites);
   };
 
