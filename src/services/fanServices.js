@@ -4,6 +4,16 @@ export const GetFanById = (userId) => {
   );
 };
 
+export const UpdateFan = (userId, userObj) => {
+  return fetch(`http://localhost:8088/users/${userId}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(userObj),
+  });
+};
+
 export const GetAllBands = () => {
   return fetch(`http://localhost:8088/bands?_expand=genre`).then((res) =>
     res.json()
@@ -78,4 +88,16 @@ export const SetFavoriteGenres = (genreObj) => {
     },
     body: JSON.stringify(genreObj),
   });
+};
+
+export const RemoveFavoriteGenres = (favoriteId) => {
+  return fetch(`http://localhost:8088/fanFavoriteGenres/${favoriteId}`, {
+    method: "DELETE",
+  });
+};
+
+export const GetFanFavoriteGenres = (userId) => {
+  return fetch(
+    `http://localhost:8088/fanFavoriteGenres?userId=${userId}&_expand=genre`
+  ).then((res) => res.json());
 };

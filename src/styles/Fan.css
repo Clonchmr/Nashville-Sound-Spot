@@ -1,0 +1,16 @@
+.fan-name-edit {
+  width: 42%;
+  margin: 0 auto;
+}
+
+.edit-fan-container h3 {
+  margin: 0 0 4rem 8rem;
+}
+
+.edit-genres-container .form-label {
+  margin: 0 0 1.5rem 21rem;
+}
+
+.edit-fan-container .btn {
+  margin: 2rem 0 4rem 20rem;
+}
