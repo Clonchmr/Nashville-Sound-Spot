@@ -1,5 +1,9 @@
 import { useEffect, useState } from "react";
-import { GetAllBands, GetAllGenres } from "../../services/fanServices";
+import {
+  GetAllBands,
+  GetAllGenres,
+  GetFanFavoriteGenres,
+} from "../../services/fanServices";
 import { useNavigate } from "react-router-dom";
 
 export const AllBands = ({ currentUser }) => {
@@ -8,6 +12,8 @@ export const AllBands = ({ currentUser }) => {
   const [filteredBands, setFilteredBands] = useState([]);
   const [searchText, setSearchText] = useState("");
   const [selectedGenre, setSelectedGenre] = useState("");
+  const [favoriteGenreIds, setFavoriteGenreIds] = useState([]);
+  const [sortByFavorites, setSortByFavorites] = useState(false);
 
   const navigate = useNavigate();
 
@@ -21,18 +27,29 @@ export const AllBands = ({ currentUser }) => {
   }, []);
 
   useEffect(() => {
+    const getFavoriteGenres = async () => {
+      const favorites = await GetFanFavoriteGenres(currentUser.id);
+      const favoritesArr = favorites.map((favorite) => favorite.genreId);
+      setFavoriteGenreIds(favoritesArr);
+    };
+    getFavoriteGenres();
+  }, [currentUser]);
+
+  useEffect(() => {
     let foundBand = allBands;
 
     if (selectedGenre !== "") {
       foundBand = foundBand.filter(
         (band) => band.genre.id === parseInt(selectedGenre)
       );
+      setSortByFavorites(false);
     }
 
     if (searchText !== "") {
       foundBand = foundBand.filter((band) =>
         band.bandName.toLowerCase().includes(searchText.toLowerCase())
       );
+      setSortByFavorites(false);
     }
 
     setFilteredBands(foundBand);
@@ -45,6 +62,17 @@ export const AllBands = ({ currentUser }) => {
   const handleBandSearch = (e) => {
     setSearchText(e.target.value);
   };
+
+  useEffect(() => {
+    if (sortByFavorites) {
+      const favoriteGenreBands = allBands.filter((band) =>
+        favoriteGenreIds.includes(band.genreId)
+      );
+      setFilteredBands(favoriteGenreBands);
+    } else {
+      setFilteredBands(allBands);
+    }
+  }, [allBands, favoriteGenreIds, sortByFavorites]);
 
   return (
     <div className="container">
@@ -71,6 +99,27 @@ export const AllBands = ({ currentUser }) => {
           placeholder="Search by band name..."
           onChange={handleBandSearch}
         ></input>
+        {!sortByFavorites ? (
+          <button
+            className="btn btn-outline-dark"
+            onClick={(e) => {
+              e.preventDefault();
+              setSortByFavorites(true);
+            }}
+          >
+            Sort by favorite genres
+          </button>
+        ) : (
+          <button
+            className="btn btn-outline-dark"
+            onClick={(e) => {
+              e.preventDefault();
+              setSortByFavorites(false);
+            }}
+          >
+            See all bands
+          </button>
+        )}
       </form>
       <div className="band-cards-container offset-1">
         {filteredBands.length > 0 ? (
