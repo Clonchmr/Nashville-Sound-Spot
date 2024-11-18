@@ -13,7 +13,7 @@ export const MyBands = ({ currentUser }) => {
   }, [currentUser]);
   return (
     <>
-      <div className="container my-bands-container">
+      <div className="container my-bands-container offset-2">
         {Array.isArray(userBands) && userBands.length > 0 ? (
           userBands.map((band) => (
             <div

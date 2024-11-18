@@ -9,8 +9,7 @@
 
 .my-bands-container {
   display: flex;
-  justify-content: space-evenly;
-  gap: 3rem;
+  gap: 5rem;
   flex-wrap: wrap;
 }
 
