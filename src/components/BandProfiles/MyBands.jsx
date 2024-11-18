@@ -39,7 +39,8 @@ export const MyBands = ({ currentUser }) => {
       </div>
       <div>
         <button
-          className="btn btn-dark mt-5 mb-5"
+          className="btn btn-dark"
+          id="create-band-btn"
           onClick={() => {
             navigate("/create");
           }}

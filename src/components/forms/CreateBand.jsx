@@ -60,7 +60,7 @@ export const CreateBand = ({ currentUser }) => {
   return (
     <form>
       <div className="container">
-        <h3 className="mt-3">Add a new band:</h3>
+        <h3 className="mt-3 mb-4">Add a new band:</h3>
         <fieldset className="row">
           <label className="form-label">Band Name</label>
           <input
@@ -113,7 +113,7 @@ export const CreateBand = ({ currentUser }) => {
           />
         </fieldset>
         <fieldset>
-          <button className="btn btn-dark" onClick={handleNewBand}>
+          <button className="btn btn-dark mt-3" onClick={handleNewBand}>
             Create Band
           </button>
         </fieldset>

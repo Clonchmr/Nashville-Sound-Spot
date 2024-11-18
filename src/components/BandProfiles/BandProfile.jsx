@@ -103,13 +103,16 @@ export const BandProfile = ({ currentUser }) => {
                 </button>
               ) : isFavorite ? (
                 <button
-                  className="btn btn-dark"
+                  className="btn btn-outline-light"
                   onClick={handleRemoveFavoriteBand}
                 >
                   Remove from favorites
                 </button>
               ) : (
-                <button className="btn btn-dark" onClick={handleAddFavorite}>
+                <button
+                  className="btn btn-light border-dark"
+                  onClick={handleAddFavorite}
+                >
                   Add favorite
                 </button>
               )}

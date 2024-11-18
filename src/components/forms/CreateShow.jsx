@@ -33,7 +33,7 @@ export const CreateShow = ({ currentUser }) => {
   return (
     <form>
       <div className="container">
-        <h3>Schedule a show:</h3>
+        <h3 className="">Schedule a show:</h3>
         <fieldset>
           <label className="form-label">Choose from your bands</label>
           <select
@@ -77,7 +77,7 @@ export const CreateShow = ({ currentUser }) => {
           </select>
         </fieldset>
         <fieldset>
-          <label className="form-label">Select Date</label>
+          <label className="form-label ">Select Date</label>
           <input
             className="form-control mb-5"
             type="date"
