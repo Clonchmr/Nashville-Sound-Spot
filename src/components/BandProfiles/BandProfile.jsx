@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { Modal } from "bootstrap";
 import {
   DeleteBand,
   GetBandById,
@@ -20,6 +21,7 @@ export const BandProfile = ({ currentUser }) => {
   const [userFavorites, setUserFavorites] = useState([]);
   const [isFavorite, setIsFavorite] = useState(false);
   const [currentFavorite, setCurrentFavorite] = useState({});
+  const modalRef = useRef(null);
 
   const { bandId } = useParams();
 
@@ -54,7 +56,28 @@ export const BandProfile = ({ currentUser }) => {
     sortShows();
   }, [shows.length]);
 
+  const handleLaunchModal = () => {
+    if (modalRef.current) {
+      const modalInstance = new Modal(modalRef.current);
+      modalInstance.show();
+    }
+  };
+
   const handleDelete = (e) => {
+    if (modalRef.current) {
+      const modalInstance = Modal.getInstance(modalRef.current);
+      if (modalInstance) {
+        modalInstance.hide();
+      }
+    }
+
+    const backdrop = document.querySelector(".modal-backdrop");
+    if (backdrop) {
+      backdrop.remove();
+    }
+
+    document.body.classList.remove("modal-open");
+
     DeleteBand(bandId)
       .then(GetBandsByUser(currentUser.id))
       .then(navigate("/mybands"));
@@ -146,14 +169,61 @@ export const BandProfile = ({ currentUser }) => {
         </div>
         {currentUser.id === currentBand.userId ? (
           <button
+            type="button"
             className="btn btn-secondary mt-5 mb-4 delete-band-btn"
-            onClick={handleDelete}
+            onClick={handleLaunchModal}
           >
             Delete Band
           </button>
         ) : (
           ""
         )}
+        <div
+          ref={modalRef}
+          className="modal fade"
+          id="staticBackdrop"
+          tabIndex="-1"
+          aria-labelledby="staticBackdropLabel"
+          aria-hidden="true"
+        >
+          <div className="modal-dialog modal-dialog-centered">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h1 className="modal-title fs-5" id="staticBackdropLabel">
+                  Delete band?
+                </h1>
+                <button
+                  type="button"
+                  className="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div className="modal-body">
+                <p>
+                  Are you sure you want to delete your band{" "}
+                  {currentBand.bandName}?
+                </p>
+              </div>
+              <div className="modal-footer">
+                <button
+                  type="button"
+                  className="btn btn-outline-danger"
+                  onClick={handleDelete}
+                >
+                  Delete
+                </button>
+                <button
+                  type="button"
+                  className="btn btn-outline-light"
+                  data-bs-dismiss="modal"
+                >
+                  Cancel
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
