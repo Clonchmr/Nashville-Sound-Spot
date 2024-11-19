@@ -76,7 +76,7 @@ export const Register = (props) => {
   return (
     <main style={{ textAlign: "center" }}>
       <form className="form-login" onSubmit={handleRegister}>
-        <h1 className="mt-5 mb-5">Nashville Sound Spot</h1>
+        <h1 className="mt-5 mb-5 text-shadow">Nashville Sound Spot</h1>
         <h2>Please Register</h2>
         <fieldset>
           <div className="form-group">
@@ -115,7 +115,7 @@ export const Register = (props) => {
                 }}
                 type="checkbox"
                 id="isBand"
-                className="mb-5"
+                className="mb-5 text-shadow"
               />
               I am a band{" "}
             </label>
@@ -124,6 +124,12 @@ export const Register = (props) => {
         <fieldset>
           {!bandChecked && (
             <div className="container">
+              <label className="form-label mb-4 text-shadow">
+                Choose your favorite genres.{" "}
+                <span className="italicize">
+                  (Pick as many as you would like!)
+                </span>
+              </label>
               <div className=" row row-cols-2 row-cols-md-4 gy-2 genre-choices offset-3 mb-5">
                 {genres.map((g) => {
                   return (
@@ -131,7 +137,7 @@ export const Register = (props) => {
                       <div className="form-check">
                         <label htmlFor={g.id} className="form-check-label">
                           <input
-                            className="form-check-input mb-2"
+                            className="form-check-input mb-2 text-shadow"
                             id={g.id}
                             type="checkbox"
                             name={g.id}
@@ -152,7 +158,7 @@ export const Register = (props) => {
         </fieldset>
         <fieldset>
           <div className="form-group">
-            <button className="login-btn btn-info" type="submit">
+            <button className="btn login-btn btn-light" type="submit">
               Register
             </button>
           </div>

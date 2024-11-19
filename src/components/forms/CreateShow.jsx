@@ -33,7 +33,7 @@ export const CreateShow = ({ currentUser }) => {
   return (
     <form>
       <div className="container">
-        <h3 className="">Schedule a show:</h3>
+        <h3 className="text-shadow">Schedule a show:</h3>
         <fieldset>
           <label className="form-label">Choose from your bands</label>
           <select

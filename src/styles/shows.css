@@ -3,6 +3,22 @@
   margin: 1.3rem auto;
 }
 
+@media (max-width: 768px) {
+  .shows-container .card-body {
+    width: 80%;
+    margin: 1.3rem auto;
+    display: flex;
+    flex-direction: column;
+  }
+  .shows-container .card-body .btn {
+    width: 80%;
+    margin: 1rem 0 0.5rem 0;
+  }
+  .shows-container .show-select {
+    width: 80%;
+  }
+}
+
 .shows-card .btn {
   width: 15%;
   height: 10%;

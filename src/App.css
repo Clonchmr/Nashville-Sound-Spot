@@ -15,3 +15,7 @@
 .text-primary {
   color: #edf2f4;
 }
+
+.text-shadow {
+  text-shadow: 0 0 0.1rem black;
+}

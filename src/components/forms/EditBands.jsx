@@ -40,11 +40,14 @@ export const EditBand = ({ currentUser }) => {
       <div className="container">
         <h3 className="mt-3">Edit band profile:</h3>
         <fieldset className="row">
-          <label className="form-label">Band Name</label>
+          <label htmlFor="band-edit-name" className="form-label">
+            Band Name
+          </label>
           <input
             type="text"
             required
             className="form-control col mb-3"
+            id="band-edit-name"
             value={bandToEdit.bandName}
             onChange={(e) => {
               const copy = { ...bandToEdit };
@@ -52,10 +55,13 @@ export const EditBand = ({ currentUser }) => {
               setBandToEdit(copy);
             }}
           />
-
+          <label htmlFor="band-edit-genre" className="form-label">
+            Genre
+          </label>
           <select
             required
             className="form-select col mb-3"
+            id="band-edit-genre"
             value={bandToEdit.genreId}
             onChange={(e) => {
               const copy = { ...bandToEdit };

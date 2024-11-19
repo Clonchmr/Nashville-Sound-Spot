@@ -13,7 +13,9 @@ export const MyBands = ({ currentUser }) => {
   }, [currentUser]);
   return (
     <>
-      <div className="container my-bands-container offset-2">
+      <h3 className="text-shadow bands-header">Your bands:</h3>
+
+      <div className="container-fluid my-bands-container ">
         {Array.isArray(userBands) && userBands.length > 0 ? (
           userBands.map((band) => (
             <div

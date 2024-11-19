@@ -32,8 +32,8 @@ export const Login = () => {
     <main className="container-login">
       <section>
         <form className="form-login" onSubmit={handleLogin}>
-          <h1 className="mt-5">Nashville Sound Spot</h1>
-          <h2 className="mt-5">Please sign in</h2>
+          <h1 className="mt-5 text-shadow">Nashville Sound Spot</h1>
+          <h2 className="mt-5 text-shadow">Please sign in</h2>
           <fieldset>
             <div className="form-group">
               <input
@@ -60,7 +60,9 @@ export const Login = () => {
         </form>
       </section>
       <section>
-        <Link to="/register">Not a member yet?</Link>
+        <Link className="nav-link" to="/register">
+          Not a member yet?
+        </Link>
       </section>
     </main>
   );

@@ -47,7 +47,7 @@ export const MyShows = ({ currentUser }) => {
 
   return (
     <div className="container">
-      <h3 className="mb-5">Your upcoming shows:</h3>
+      <h3 className="mb-5 text-shadow">Your upcoming shows:</h3>
       <select
         className="form-select mb-5 show-select"
         onChange={handleFilterBands}

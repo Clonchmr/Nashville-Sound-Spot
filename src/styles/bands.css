@@ -9,9 +9,14 @@
 
 .my-bands-container {
   display: flex;
+  justify-content: center;
   gap: 5rem;
   flex-wrap: wrap;
   margin-top: 5rem;
+}
+
+.bands-header {
+  margin: 4rem 0 4rem 13rem;
 }
 
 #create-band-btn {
@@ -44,4 +49,18 @@
 .band-cards-container .card:hover {
   box-shadow: 0 0 0.1rem grey;
   cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .bands-header {
+    margin: 4rem 0 4rem 1rem;
+  }
+
+  #create-band-btn {
+    margin: 2rem 0 1rem 2rem;
+  }
+
+  .band-profile-container .card {
+    margin-bottom: 2rem;
+  }
 }

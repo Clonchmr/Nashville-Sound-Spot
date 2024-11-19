@@ -11,6 +11,18 @@
 .container-login {
   text-align: center;
 }
+.container-login .nav-link {
+  width: max-content;
+  margin: 0 auto;
+}
+
+.text-shadow {
+  text-shadow: 0 0 0.1rem black;
+}
+
+.container-login .nav-link:hover {
+  text-shadow: 0 0 0.1rem whitesmoke;
+}
 
 .form-login .form-control {
   width: 40%;
