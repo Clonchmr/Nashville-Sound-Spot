@@ -53,7 +53,7 @@ export const Favorites = ({ currentUser }) => {
                 <div className="card-body">
                   <h4 className="card-title mb-4">{b.band.bandName}</h4>
                   <button
-                    className="btn btn-dark"
+                    className="btn btn-outline-light"
                     onClick={() => {
                       handleRemoveFavoriteBand(b.id);
                     }}
@@ -87,7 +87,7 @@ export const Favorites = ({ currentUser }) => {
                     Capacity: {v.venue.capacity}
                   </h6>
                   <button
-                    className="btn btn-dark"
+                    className="btn btn-outline-light"
                     onClick={() => {
                       handleRemoveFavoriteVenue(v.id);
                     }}

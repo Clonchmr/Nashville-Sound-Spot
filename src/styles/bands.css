@@ -11,10 +11,15 @@
   display: flex;
   gap: 5rem;
   flex-wrap: wrap;
+  margin-top: 5rem;
+}
+
+#create-band-btn {
+  margin: 4rem 0 0 14rem;
 }
 
 .my-bands-cards:hover {
-  box-shadow: 0 0 0.1rem gray;
+  box-shadow: 0 0 0.3rem gray;
   cursor: pointer;
 }
 

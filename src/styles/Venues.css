@@ -9,7 +9,11 @@
   padding: 1.5rem;
   text-align: center;
 }
-
+.venues-container .card:hover {
+  background-color: antiquewhite;
+  color: black;
+  border: 1px solid black;
+}
 .venues-header {
   display: flex;
   justify-content: space-around;

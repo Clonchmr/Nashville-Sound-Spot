@@ -101,13 +101,13 @@ export const AllBands = ({ currentUser }) => {
         ></input>
         {!sortByFavorites ? (
           <button
-            className="btn btn-outline-dark"
+            className="btn btn-dark border-secondary"
             onClick={(e) => {
               e.preventDefault();
               setSortByFavorites(true);
             }}
           >
-            Sort by favorite genres
+            Filter by favorite genres
           </button>
         ) : (
           <button

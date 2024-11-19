@@ -47,7 +47,7 @@ export const FanProfile = ({ currentUser }) => {
                 )}
               </ul>
               <button
-                className="btn btn-dark mt-3"
+                className="btn btn-outline-light mt-3"
                 onClick={() => {
                   navigate(`/myprofile/edit`);
                 }}
@@ -69,7 +69,7 @@ export const FanProfile = ({ currentUser }) => {
                         return (
                           <li key={b.id} className="list-group-item mb-1">
                             <Link
-                              className="link-dark link-opacity-75"
+                              className="link-light link-opacity-75"
                               to={`/bands/${b.band.id}`}
                             >
                               {b.band.bandName}
@@ -98,7 +98,7 @@ export const FanProfile = ({ currentUser }) => {
                         return (
                           <li key={v.id} className="list-group-item mb-1">
                             <Link
-                              className="link-dark link-opacity-75"
+                              className="link-light link-opacity-75"
                               to={`/venues/${v.venue.id}`}
                             >
                               {v.venue.name}

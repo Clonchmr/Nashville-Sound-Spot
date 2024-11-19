@@ -1,10 +1,17 @@
 #root {
   width: 100%;
-  margin: 0 2rem;
-  padding: 0;
+  margin: 0;
+  padding: 0 2rem;
   text-align: left;
+  background-image: url("./assets/black-room-with-lights.jpg");
+  background-size: cover;
+  background-color: #8d99ae;
 }
 
 .read-the-docs {
   color: #888;
+}
+
+.text-primary {
+  color: #edf2f4;
 }

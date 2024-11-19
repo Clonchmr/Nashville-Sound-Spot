@@ -65,11 +65,17 @@ export const VenueDetails = ({ currentUser }) => {
             <h4 className="card-title mb-5 mt-3">{venue.name}</h4>
             <h6 className="card-subtitle mb-5">Capacity: {venue.capacity}</h6>
             {isFavorite ? (
-              <button className="btn btn-dark" onClick={handleRemoveFavorite}>
+              <button
+                className="btn btn-outline-light"
+                onClick={handleRemoveFavorite}
+              >
                 Remove Favorite
               </button>
             ) : (
-              <button className="btn btn-dark" onClick={handleAddFavorite}>
+              <button
+                className="btn btn-light border-dark"
+                onClick={handleAddFavorite}
+              >
                 Add Favorite
               </button>
             )}
