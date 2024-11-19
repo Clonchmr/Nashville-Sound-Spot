@@ -78,7 +78,7 @@ export const MyShows = ({ currentUser }) => {
                     <p className="card-text">{show.venue.capacity} cap.</p>
                   </div>
                   <button
-                    className="btn btn-dark"
+                    className="btn btn-outline-light"
                     onClick={() => {
                       navigate(`/myshows/editshow/${show.id}`);
                     }}

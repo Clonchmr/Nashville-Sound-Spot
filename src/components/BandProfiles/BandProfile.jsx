@@ -94,7 +94,7 @@ export const BandProfile = ({ currentUser }) => {
               </h6>
               {currentUser.id === currentBand.userId ? (
                 <button
-                  className="btn btn-dark"
+                  className="btn btn-outline-light"
                   onClick={() => {
                     navigate("edit");
                   }}
