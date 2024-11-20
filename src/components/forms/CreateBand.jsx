@@ -22,29 +22,58 @@ export const CreateBand = ({ currentUser }) => {
     const UPLOAD_PRESET = "profile_pictures_preset";
     const file = e.target.files?.[0];
 
-    const formData = new FormData();
-    formData.append("file", file);
-    formData.append("upload_preset", UPLOAD_PRESET);
-    formData.append("folder", "profile-pictures");
+    try {
+      const formData = new FormData();
+      formData.append("file", file);
+      formData.append("upload_preset", UPLOAD_PRESET);
+      formData.append("folder", "profile-pictures");
 
-    const response = await fetch(
-      `https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD_NAME}/image/upload`,
-      {
-        method: "POST",
-        body: formData,
+      const response = await fetch(
+        `https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD_NAME}/image/upload`,
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
       }
-    );
-    const data = await response.json();
+      const data = await response.json();
 
-    const optimizedUrl = data.secure_url.replace(
-      "/upload/",
-      "/upload/c_fill,w_400,h_400,g_face/"
-    );
-    setImageUrl(optimizedUrl);
+      if (!data.secure_url) {
+        throw new Error("No image URL received from Cloudinary");
+      }
+
+      const optimizedUrl = data.secure_url.replace(
+        "/upload/",
+        "/upload/c_fill,w_400,h_400,g_face/"
+      );
+      const img = new Image();
+      img.src = optimizedUrl;
+      await new Promise((resolve, reject) => {
+        img.onload = resolve;
+        img.onerror = reject;
+      });
+
+      setImageUrl(optimizedUrl);
+    } catch (error) {
+      console.error("Image upload failed", error);
+      alert("Failed to upload image. Please try again.");
+
+      e.target.value = "";
+    }
   };
 
   const handleNewBand = (e) => {
     e.preventDefault();
+
+    if (!imageUrl) {
+      console.error("Failed to create band");
+      alert("Failed to create band. Please try again.");
+      return;
+    }
+
     const newBand = {
       userId: currentUser.id,
       bandName: name,
@@ -53,9 +82,13 @@ export const CreateBand = ({ currentUser }) => {
       profilePicture: imageUrl,
     };
     CreateNewBand(newBand)
-      .then(GetBandsByUser(currentUser.id))
+      .then(() => GetBandsByUser(currentUser.id))
       .then(setAllBands)
-      .then(navigate("/mybands"));
+      .then(() => navigate("/mybands"))
+      .catch((error) => {
+        console.error("Failed to create band:", error);
+        alert("Failed to create band. Please try again");
+      });
   };
   return (
     <form>
