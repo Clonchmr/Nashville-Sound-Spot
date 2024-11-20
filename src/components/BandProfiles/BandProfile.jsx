@@ -152,6 +152,7 @@ export const BandProfile = ({ currentUser }) => {
           <div className="band-shows-container">
             <div className="card mt-5">
               <div className="card-body">
+                <h4 className="card-title mb-3">Upcoming shows:</h4>
                 {shows.length > 0 ? (
                   shows.map((show) => {
                     return (

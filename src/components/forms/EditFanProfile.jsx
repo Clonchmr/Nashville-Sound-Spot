@@ -91,7 +91,7 @@ export const EditFanProfile = ({ currentUser }) => {
         {
           <div className="container edit-genres-container">
             <label className="form-label">Edit favorite genres:</label>
-            <div className=" row row-cols-2 row-cols-md-4 gy-2 genre-choices offset-3 mb-5">
+            <div className=" row row-cols-2 row-cols-md-4 gy-2 genre-choices  mb-5">
               {allGenres.map((g) => {
                 return (
                   <div className="col genre-choice" key={g.id}>

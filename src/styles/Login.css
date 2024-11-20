@@ -38,3 +38,16 @@
 .form-check {
   text-align: left;
 }
+
+.register-h1 {
+  cursor: pointer;
+}
+
+@media (max-width: 762px) {
+  .form-login .form-control {
+    width: 100%;
+  }
+  .form-login .btn {
+    width: 40%;
+  }
+}

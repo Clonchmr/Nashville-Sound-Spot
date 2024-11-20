@@ -3,6 +3,10 @@
   margin: 1.3rem auto;
 }
 
+.show-select {
+  width: 30% !important;
+}
+
 @media (max-width: 768px) {
   .shows-container .card-body {
     width: 80%;
@@ -17,6 +21,10 @@
   .shows-container .show-select {
     width: 80%;
   }
+  .show-select {
+    width: 70% !important;
+    margin: 0 auto;
+  }
 }
 
 .shows-card .btn {
@@ -27,8 +35,4 @@
 
 .shows-container .btn {
   margin-right: 1rem;
-}
-
-.show-select {
-  width: 30% !important;
 }

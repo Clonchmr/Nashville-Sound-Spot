@@ -121,7 +121,7 @@ export const AllBands = ({ currentUser }) => {
           </button>
         )}
       </form>
-      <div className="band-cards-container offset-1">
+      <div className="band-cards-container">
         {filteredBands.length > 0 ? (
           filteredBands.map((band) => {
             return (

@@ -26,7 +26,7 @@ export const FanProfile = ({ currentUser }) => {
   }, [currentUser, favoriteBands.length, favoriteVenues.length]);
 
   return (
-    <div className="container">
+    <div className="container fan-profile-container">
       <div className="card-container row">
         <div className="col-md-5 offset-md-1">
           <div className="card border-secondary text-center">

@@ -1,10 +1,16 @@
-.favorites-container {
-  display: flex;
-  justify-content: space-around;
+.favorites-container .card {
+  margin: 0 auto;
 }
 
 .favorite-bands-container .card-img-top:hover,
 .favorite-venues-container .card-title:hover {
   cursor: pointer;
   text-shadow: 0 0 0.1rem whitesmoke;
+}
+
+@media (max-width: 768px) {
+  .favorites-container .card {
+    width: 95%;
+    text-align: center;
+  }
 }

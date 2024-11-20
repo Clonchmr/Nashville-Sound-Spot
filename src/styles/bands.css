@@ -41,6 +41,8 @@
 
 .band-cards-container {
   display: flex;
+  justify-content: center;
+
   flex-wrap: wrap;
   gap: 6rem;
   margin-bottom: 4rem;
@@ -61,6 +63,25 @@
   }
 
   .band-profile-container .card {
-    margin-bottom: 2rem;
+    margin: 1rem auto;
+  }
+  .search-filter-header {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .search-filter-header .form-control,
+  .search-filter-header .form-select {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .band-cards-container .card {
+    margin: 0 auto;
+  }
+
+  .create-band-headers {
+    display: flex;
+    flex-direction: column;
   }
 }

@@ -94,7 +94,7 @@ export const CreateBand = ({ currentUser }) => {
     <form>
       <div className="container">
         <h3 className="mt-3 mb-4">Add a new band:</h3>
-        <fieldset className="row">
+        <fieldset className="create-band-headers row">
           <label className="form-label">Band Name</label>
           <input
             type="text"

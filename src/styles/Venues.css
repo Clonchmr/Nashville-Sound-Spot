@@ -36,3 +36,29 @@
 .venue-details-container .card-text {
   line-height: 2rem;
 }
+
+@media (max-width: 1197px) {
+  .venues-container .card {
+    margin: 0 auto;
+    width: 40%;
+  }
+}
+
+@media (max-width: 768px) {
+  .venues-container .card {
+    width: 100%;
+  }
+
+  .venue-details-container .card-body,
+  .venue-details-container .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+  }
+
+  .venue-details-container .btn {
+    margin-bottom: 2rem;
+  }
+}

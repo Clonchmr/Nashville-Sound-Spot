@@ -7,10 +7,33 @@
   margin: 0 0 4rem 8rem;
 }
 
-.edit-genres-container .form-label {
-  margin: 0 0 1.5rem 21rem;
+.edit-genres-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .edit-fan-container .btn {
   margin: 2rem 0 4rem 20rem;
+}
+
+@media (max-width: 990px) {
+  .genre-choices .genre-choice {
+    margin-right: 1.6rem;
+  }
+}
+
+@media (max-width: 762px) {
+  .fan-profile-container .card {
+    margin: 1rem auto;
+  }
+  .fan-name-edit {
+    width: 80%;
+  }
+  .genre-choices {
+    display: flex;
+  }
+  .edit-fan-container .btn {
+    margin: 2rem auto 4rem auto;
+  }
 }
