@@ -1,7 +1,18 @@
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 export const FanNav = () => {
   const navigate = useNavigate();
+  const [isNavOpen, setIsNavOpen] = useState(false);
+
+  const toggleNavbar = () => {
+    setIsNavOpen(!isNavOpen);
+  };
+
+  const handleLinkClick = () => {
+    setIsNavOpen(false);
+  };
+
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-body-tertiary border-bottom border-body mb-5">
@@ -13,28 +24,57 @@ export const FanNav = () => {
               className="logo"
             />
           </Link>
+
           <button
             className="navbar-toggler"
             type="button"
-            data-bs-toggle="collapse"
+            onClick={toggleNavbar}
             data-bs-target="#navbarToggle"
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-          <div className="collapse navbar-collapse" id="navbarToggle">
+
+          <div
+            className={`collapse navbar-collapse ${isNavOpen ? "show" : ""}`}
+            id="navbarToggle"
+          >
             <ul className="navbar-nav me-auto mb-lg-0">
-              <Link className="nav-link" to={"/myprofile"}>
-                <li className="nav-item me-5">My Profile</li>
-              </Link>
-              <Link className="nav-link" to={"/bands"}>
-                <li className="nav-item me-5">Bands</li>
-              </Link>
-              <Link className="nav-link" to={"/favorites"}>
-                <li className="nav-item me-5">Favorites</li>
-              </Link>
-              <Link className="nav-link" to={"/venues"}>
-                <li className="nav-item me-5">Venues</li>
-              </Link>
+              <li className="nav-item me-5">
+                <Link
+                  className="nav-link"
+                  to={"/myprofile"}
+                  onClick={handleLinkClick}
+                >
+                  My Profile
+                </Link>
+              </li>
+              <li className="nav-item me-5">
+                <Link
+                  className="nav-link"
+                  to={"/bands"}
+                  onClick={handleLinkClick}
+                >
+                  Bands
+                </Link>
+              </li>
+              <li className="nav-item me-5">
+                <Link
+                  className="nav-link"
+                  to={"/favorites"}
+                  onClick={handleLinkClick}
+                >
+                  Favorites
+                </Link>
+              </li>
+              <li className="nav-item me-5">
+                <Link
+                  className="nav-link"
+                  to={"/venues"}
+                  onClick={handleLinkClick}
+                >
+                  Venues
+                </Link>
+              </li>
             </ul>
             <ul className="navbar-nav">
               {localStorage.getItem("sound_spot_user") ? (
@@ -50,9 +90,7 @@ export const FanNav = () => {
                     Logout
                   </Link>
                 </li>
-              ) : (
-                ""
-              )}
+              ) : null}
             </ul>
           </div>
         </div>
