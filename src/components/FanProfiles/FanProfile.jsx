@@ -27,8 +27,8 @@ export const FanProfile = ({ currentUser }) => {
 
   return (
     <div className="container fan-profile-container">
-      <div className="card-container row">
-        <div className="col-md-5 offset-md-1">
+      <div className=" row">
+        <div className="col-md-5 ">
           <div className="card border-secondary text-center">
             <div className="card-body">
               <h4 className="card-title mb-5 mt-5">{currentFan.name}</h4>
@@ -57,10 +57,10 @@ export const FanProfile = ({ currentUser }) => {
             </div>
           </div>
         </div>
-        <div className="fan-favorites-container col-md-5 offset-md-1">
+        <div className="fan-favorites-container col-md-5">
           <div className="row">
             <div className="col">
-              <div className="card info-card border-secondary text-center mb-5">
+              <div className="card border-secondary text-center mb-5">
                 <h4 className="card-header mb-1">Favorite Bands</h4>
                 <div className="card-body">
                   <ul className="list-group list-group-flush">

@@ -111,7 +111,7 @@ export const AllBands = ({ currentUser }) => {
           </button>
         ) : (
           <button
-            className="btn btn-outline-dark"
+            className="btn btn-dark"
             onClick={(e) => {
               e.preventDefault();
               setSortByFavorites(false);

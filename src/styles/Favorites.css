@@ -14,3 +14,9 @@
     text-align: center;
   }
 }
+
+@media (min-width: 982px) {
+  .favorite-bands-container .card {
+    width: 60%;
+  }
+}

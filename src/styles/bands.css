@@ -85,3 +85,9 @@
     flex-direction: column;
   }
 }
+
+@media (min-width: 982px) {
+  .card-container .card {
+    width: 75%;
+  }
+}
