@@ -64,7 +64,10 @@ export const Favorites = ({ currentUser }) => {
   const renderBandsContent = () =>
     favoriteBands.length > 0 ? (
       favoriteBands.map((b) => (
-        <div key={b.band.id} className="card border-secondary text-center mb-4">
+        <div
+          key={b.band.id}
+          className="card  border-secondary text-center mb-4"
+        >
           <img
             className="card-img-top"
             src={b.band.profilePicture}
@@ -89,7 +92,7 @@ export const Favorites = ({ currentUser }) => {
   const renderVenuesContent = () =>
     favoriteVenues.length > 0 ? (
       favoriteVenues.map((v) => (
-        <div key={v.venue.id} className="card card-border-secondary mb-4">
+        <div key={v.venue.id} className="card  card-border-secondary mb-4">
           <div className="card-body">
             <h4
               className="card-title mb-5"

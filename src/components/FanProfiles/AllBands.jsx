@@ -125,21 +125,22 @@ export const AllBands = ({ currentUser }) => {
         {filteredBands.length > 0 ? (
           filteredBands.map((band) => {
             return (
-              <div
-                key={band.id}
-                className="card border-secondary text-center"
-                onClick={(e) => {
-                  navigate(`/bands/${band.id}`);
-                }}
-              >
-                <img
-                  className="card-img-top"
-                  src={band.profilePicture}
-                  alt={band.bandName}
-                />
-                <div className="card-body">
-                  <h4 className="card-title">{band.bandName}</h4>
-                  <h6 className="card-subtitle">{band.genre.type}</h6>
+              <div key={band.id}>
+                <div
+                  className="card border-secondary text-center"
+                  onClick={(e) => {
+                    navigate(`/bands/${band.id}`);
+                  }}
+                >
+                  <img
+                    className="card-img-top"
+                    src={band.profilePicture}
+                    alt={band.bandName}
+                  />
+                  <div className="card-body">
+                    <h4 className="card-title mb-4">{band.bandName}</h4>
+                    <h6 className="card-subtitle">{band.genre.type}</h6>
+                  </div>
                 </div>
               </div>
             );

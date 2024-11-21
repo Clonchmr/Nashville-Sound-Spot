@@ -104,7 +104,7 @@ export const BandProfile = ({ currentUser }) => {
     <div className="container band-profile-container">
       <div className="card-container row">
         <div className="col-md-5 offset-md-1">
-          <div className="card border-secondary text-center">
+          <div className="card  border-secondary text-center">
             <img
               src={currentBand.profilePicture}
               alt={currentBand.bandName}

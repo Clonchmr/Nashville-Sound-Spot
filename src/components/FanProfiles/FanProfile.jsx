@@ -29,7 +29,7 @@ export const FanProfile = ({ currentUser }) => {
     <div className="container fan-profile-container">
       <div className="card-container row">
         <div className="col-md-5 offset-md-1">
-          <div className="card border-secondary text-center">
+          <div className="card info-card border-secondary text-center">
             <div className="card-body">
               <h4 className="card-title mb-5 mt-5">{currentFan.name}</h4>
               <h6 className="card-subtitle mb-3">Favorite Genres</h6>
@@ -47,7 +47,7 @@ export const FanProfile = ({ currentUser }) => {
                 )}
               </ul>
               <button
-                className="btn btn-outline-light mt-3"
+                className="btn btn-outline-light mt-4 mb-4"
                 onClick={() => {
                   navigate(`/myprofile/edit`);
                 }}
@@ -60,7 +60,7 @@ export const FanProfile = ({ currentUser }) => {
         <div className="fan-favorites-container col-md-5 offset-md-1">
           <div className="row">
             <div className="col">
-              <div className="card border-secondary text-center mb-5">
+              <div className="card info-card border-secondary text-center mb-5">
                 <h4 className="card-header mb-1">Favorite Bands</h4>
                 <div className="card-body">
                   <ul className="list-group list-group-flush">
@@ -89,7 +89,7 @@ export const FanProfile = ({ currentUser }) => {
           </div>
           <div className="row">
             <div className="col-12">
-              <div className="card border-secondary text-center">
+              <div className="card info-card border-secondary text-center">
                 <h4 className="card-header mb-1">Favorite Venues</h4>
                 <div className="card-body">
                   <ul className="list-group list-group-flush">

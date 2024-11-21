@@ -1,5 +1,8 @@
-.card {
-  width: 20rem;
+.band-cards-container .card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .delete-band-btn {
@@ -40,14 +43,11 @@
 }
 
 .band-cards-container {
-  display: flex;
-  justify-content: center;
-
-  flex-wrap: wrap;
-  gap: 6rem;
-  margin-bottom: 4rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 3rem;
+  justify-items: center;
 }
-
 .band-cards-container .card:hover {
   box-shadow: 0 0 0.1rem grey;
   cursor: pointer;
