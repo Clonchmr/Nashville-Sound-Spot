@@ -36,10 +36,24 @@
   .edit-fan-container .btn {
     margin: 2rem auto 4rem auto;
   }
+  .edit-fan-container h3 {
+    margin-left: 3.7rem;
+  }
 }
-
 @media (min-width: 982px) {
-  .fan-favorites-container {
-    margin-left: 10rem;
+  #fan-profile-card {
+    width: 75%;
+    height: 100%;
+    margin-left: 3rem;
+  }
+  .profile-favorites-container {
+    margin-left: 11rem;
+  }
+  .profile-favorites-container .card {
+    width: 65%;
+  }
+
+  .fan-profile-container .row {
+    margin-left: 3rem;
   }
 }

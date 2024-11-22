@@ -11,7 +11,11 @@ import {
 export const EditShow = ({ currentUser }) => {
   const [venues, setVenues] = useState([]);
   const [userBands, setUserBands] = useState([]);
-  const [showToEdit, setShowToEdit] = useState({});
+  const [showToEdit, setShowToEdit] = useState({
+    bandId: "",
+    venueId: "",
+    date: "",
+  });
   const [allShows, setAllShows] = useState([]);
 
   const { showId } = useParams();

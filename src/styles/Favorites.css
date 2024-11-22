@@ -19,4 +19,12 @@
   .favorite-bands-container .card {
     width: 60%;
   }
+
+  .favorite-venues-container .card {
+    width: 60%;
+  }
+
+  .fan-favorites-container {
+    margin-left: 10rem;
+  }
 }

@@ -29,7 +29,10 @@ export const FanProfile = ({ currentUser }) => {
     <div className="container fan-profile-container">
       <div className=" row">
         <div className="col-md-5 ">
-          <div className="card border-secondary text-center">
+          <div
+            className="card border-secondary text-center"
+            id="fan-profile-card"
+          >
             <div className="card-body">
               <h4 className="card-title mb-5 mt-5">{currentFan.name}</h4>
               <h6 className="card-subtitle mb-3">Favorite Genres</h6>
@@ -57,7 +60,7 @@ export const FanProfile = ({ currentUser }) => {
             </div>
           </div>
         </div>
-        <div className="fan-favorites-container col-md-5">
+        <div className="profile-favorites-container col-md-5">
           <div className="row">
             <div className="col">
               <div className="card border-secondary text-center mb-5">

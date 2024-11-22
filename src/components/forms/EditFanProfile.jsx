@@ -11,7 +11,7 @@ import { useNavigate } from "react-router-dom";
 import "../../styles/Fan.css";
 
 export const EditFanProfile = ({ currentUser }) => {
-  const [currentFan, setCurrentFan] = useState({});
+  const [currentFan, setCurrentFan] = useState({ name: "" });
   const [allGenres, setAllGenres] = useState([]);
   const [favoriteGenres, setFavoriteGenres] = useState([]);
   const [favoriteGenreIds, setFavoriteGenreIds] = useState([]);
