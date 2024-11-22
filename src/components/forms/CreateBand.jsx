@@ -5,10 +5,8 @@ import { useNavigate } from "react-router-dom";
 
 export const CreateBand = ({ currentUser }) => {
   const [allGenres, setAllGenres] = useState([]);
-  const [name, setName] = useState("");
-  const [genre, setGenre] = useState("");
-  const [bio, setBio] = useState("");
-  const [imageUrl, setImageUrl] = useState(""); //need to refactor all of this
+  const [newBand, setNewBand] = useState({});
+  const [imageUrl, setImageUrl] = useState("");
   const [allBands, setAllBands] = useState({});
 
   const navigate = useNavigate();
@@ -74,14 +72,14 @@ export const CreateBand = ({ currentUser }) => {
       return;
     }
 
-    const newBand = {
+    const newBandInfo = {
       userId: currentUser.id,
-      bandName: name,
-      description: bio,
-      genreId: parseInt(genre),
+      bandName: newBand.bandName,
+      description: newBand.description,
+      genreId: parseInt(newBand.genreId),
       profilePicture: imageUrl,
     };
-    CreateNewBand(newBand)
+    CreateNewBand(newBandInfo)
       .then(() => GetBandsByUser(currentUser.id))
       .then(setAllBands)
       .then(() => navigate("/mybands"))
@@ -102,14 +100,18 @@ export const CreateBand = ({ currentUser }) => {
             className="form-control col mb-3"
             placeholder="Enter Band Name..."
             onChange={(e) => {
-              setName(e.target.value);
+              const newBandObj = { ...newBand };
+              newBandObj.bandName = e.target.value;
+              setNewBand(newBandObj);
             }}
           />
           <select
             required
             className="form-select col mb-3"
             onChange={(e) => {
-              setGenre(e.target.value);
+              const newBandObj = { ...newBand };
+              newBandObj.genreId = e.target.value;
+              setNewBand(newBandObj);
             }}
           >
             <option value="">Choose Genre</option>
@@ -129,7 +131,9 @@ export const CreateBand = ({ currentUser }) => {
             required
             placeholder="Tell us about yourself..."
             onChange={(e) => {
-              setBio(e.target.value);
+              const newBandObj = { ...newBand };
+              newBandObj.description = e.target.value;
+              setNewBand(newBandObj);
             }}
           />
         </fieldset>

@@ -1,8 +1,23 @@
-# React + Vite
+# ![Nashville Sound Spot logo](./src/assets/Logo.jpg) Nashville Sound Spot
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Nashville Sound Spot** is my front-end capstone project for Nashville Software School. It's a simple project designed for getting more practice at using the fundamentals of mainly the React framework, but also styling with bootstrap.
 
-Currently, two official plugins are available:
+## Premise of the project
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Nashville Sound Spot is designed to be a basic local bands-in-town type of app, where a user can add their band/bands to their profile, and display more information about them, along with what shows they are playing in Nashville area; and other users can save their favorite bands, venues, and discover new bands based on their favorite genres.
+
+## Development
+
+The project was developed using the React framework, and styled using a combination of standard bootstrap, along with custom CSS rules. It uses json-server to store and access data, and the react-router-dom package for navigation.
+
+## Install and Run
+
+1. Clone or download this repository.
+
+2. Clone or download my [JSON-Server api](https://github.com/Clonchmr/Sound-spot-api).
+
+3. In your terminal/command prompt, run `npm install` form the installed directory.
+
+4. In your terminal/command prompt, run `json-server database.json -p 8088` in the `sound-spot-api` directory.
+
+5. In your terminal/command prompt, run `npm run dev` in the `nashville-sound-spot` root directory.
