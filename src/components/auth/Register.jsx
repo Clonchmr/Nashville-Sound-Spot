@@ -24,7 +24,6 @@ export const Register = (props) => {
     const createdUser = await createUser(fan);
 
     if (createdUser.hasOwnProperty("id")) {
-      // Store user in localStorage
       localStorage.setItem(
         "sound_spot_user",
         JSON.stringify({
@@ -50,10 +49,8 @@ export const Register = (props) => {
     e.preventDefault();
     getUserByEmail(fan.email).then((response) => {
       if (response.length > 0) {
-        // Duplicate email. No good.
         window.alert("Account with that email address already exists");
       } else {
-        // Good email, create user.
         registerNewUser();
       }
     });
