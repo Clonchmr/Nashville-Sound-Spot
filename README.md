@@ -1,4 +1,4 @@
-# <img src = "./src/assets/Logo.jpg" width=7% height=7%> Nashville Sound Spot
+# <img src = "./src/assets/Logo.jpg" width=10% height=10%> Nashville Sound Spot
 
 **Nashville Sound Spot** is my front-end capstone project for Nashville Software School. It's a simple project designed for getting more practice at using the fundamentals of mainly the React library, but also styling with bootstrap.
 
